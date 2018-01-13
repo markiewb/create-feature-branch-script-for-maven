@@ -1,1 +1,62 @@
-# create-feature-branch-maven-
+= Feature branch helper script for Maven
+
+This Maven integrated script helps you with the tedious tasks of creating feature branches.
+
+The manual execution of tasks like creating a git branch, setting the pom-versions, committing the changed pom.xml can be automated this way. 
+ 
+== Usage
+
+Invoke 
+ 
+   mvn 
+   
+The script will ask you for the name of the feature branch.
+
+It requires Git and Maven in the PATH.
+
+
+== Usage in Action
+   
+----   
+> mvn
+...
+[INFO] Executing tasks
+main:
+     [echo] Please enter the issue number and a short description (example: '12345-Shortdesc'):
+     [echo] 
+     [echo] This script will
+     [echo]     a) create a branch called feature/JIRA-12345-Shortdesc
+     [echo]     b) set the pom-version to 2.5.0-JIRA-12345-ShortDesc-SNAPSHOT
+     [echo]     c) commit the changes
+> YOUR INPUT 
+     [echo] .Create new branch
+     [echo] .Update pom-version
+     [echo] .Add and commit changes
+     [exec] add 'pom.xml'
+     [exec] add 'submodule/pom.xml'
+     [exec] [feature/JIRA-88888-FixTheEncoding 616e435] REVERT ME
+     [exec]  2 files changed, 2 insertions(+), 2 deletions(-)
+     [echo] .Done
+     [echo] =========================================================================
+     [echo] Next steps:
+     [echo] 
+     [echo] a) Push your branch to remote via
+     [echo]     git push origin feature/JIRA-88888-FixTheEncoding
+     [echo] b) Trigger the build job 
+     [echo]     TODO
+     [echo] =========================================================================
+...
+----   
+
+
+== FAQ
+
+=== Only `mvn`? No arguments at commandline? 
+
+Yes, it is such simple. A pre-configured `maven-antrun-plugin` configuration is set the default goal. 
+
+More details at https://maven.apache.org/pom.html#BaseBuild_Element 
+
+=== How does it work?
+
+See the sources. It is highly adaptable.

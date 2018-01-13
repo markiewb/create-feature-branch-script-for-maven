@@ -59,4 +59,4 @@ More details at https://maven.apache.org/pom.html#BaseBuild_Element
 
 === How does it work?
 
-See the sources. It is highly adaptable.
+See the https://github.com/markiewb/create-feature-branch-script-for-maven/blob/master/pom.xml#L23[sources]. It is highly adaptable.
